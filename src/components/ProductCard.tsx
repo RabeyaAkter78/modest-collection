@@ -3,7 +3,7 @@ import Link from "next/link";
 import type { Product } from "@/types/product";
 import { useCart } from "@/context/CartContext";
 import { useWishlist } from "@/context/WishlistContext";
-import { Heart, ShoppingBag, Eye } from "lucide-react";
+import { Heart, ShoppingBag } from "lucide-react";
 
 export default function ProductCard({ product }: { product: Product }) {
   const { add } = useCart();
@@ -13,15 +13,17 @@ export default function ProductCard({ product }: { product: Product }) {
 
   return (
     <div className="group">
-      <div className="relative aspect-[3/4] w-full overflow-hidden rounded-lg bg-stone-100">
-        {/* Product Image */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={imageSrc}
-          alt={product.name}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-          loading="lazy"
-        />
+      <div className="relative aspect-3/4 w-full overflow-hidden rounded-lg bg-stone-100">
+        {/* Product Image - Clickable */}
+        <Link href={`/product/${product.id}`} className="block h-full w-full">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={imageSrc}
+            alt={product.name}
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+          />
+        </Link>
 
         {/* Sale Badge */}
         {product.onSale && (
@@ -34,7 +36,10 @@ export default function ProductCard({ product }: { product: Product }) {
         <div className="absolute inset-x-0 bottom-0 translate-y-full bg-gradient-to-t from-stone-900/60 to-transparent p-4 pt-12 transition-transform duration-300 group-hover:translate-y-0">
           <div className="flex gap-2">
             <button
-              onClick={() => add(product, 1)}
+              onClick={(e) => {
+                e.preventDefault();
+                add(product, 1);
+              }}
               className="flex-1 rounded-sm bg-white px-4 py-2.5 text-sm font-medium text-stone-900 transition-colors hover:bg-stone-100"
             >
               <span className="flex items-center justify-center gap-2">
@@ -42,14 +47,11 @@ export default function ProductCard({ product }: { product: Product }) {
                 Add to Cart
               </span>
             </button>
-            <Link
-              href={`/product/${product.slug}`}
-              className="flex items-center justify-center rounded-sm bg-white/90 px-3 py-2.5 text-stone-900 transition-colors hover:bg-white"
-            >
-              <Eye className="h-4 w-4" />
-            </Link>
             <button
-              onClick={() => toggle(product.id)}
+              onClick={(e) => {
+                e.preventDefault();
+                toggle(product.id);
+              }}
               className="flex items-center justify-center rounded-sm bg-white/90 px-3 py-2.5 text-rose-500 transition-colors hover:bg-white"
             >
               <Heart className={`h-4 w-4 ${has(product.id) ? "fill-current" : ""}`} />
@@ -61,7 +63,7 @@ export default function ProductCard({ product }: { product: Product }) {
       {/* Product Info */}
       <div className="mt-4">
         <Link
-          href={`/product/${product.slug}`}
+          href={`/product/${product.id}`}
           className="group/link block"
         >
           <h3 className="text-sm font-medium text-stone-900 transition-colors group-hover/link:text-stone-600">

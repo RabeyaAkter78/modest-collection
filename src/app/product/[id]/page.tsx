@@ -1,7 +1,7 @@
 "use client";
 
 import { notFound } from "next/navigation";
-import { useState } from "react";
+import { useState, use } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { products } from "@/data/products";
@@ -13,24 +13,34 @@ import { Heart, ShoppingBag, Truck, Shield, ArrowLeft, Star } from "lucide-react
 export default function ProductDetails({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ id: string }>;
 }) {
+  const { id } = use(params);
   const { add } = useCart();
   const { toggle, has } = useWishlist();
 
-  const product = products.find((p) => p.slug === params.slug);
-  if (!product) return notFound();
+  const product = products.find((p) => p.id === id);
 
+  // Move hooks above any conditional return
   const initialSize = product?.sizes?.[0] || "";
   const [selectedSize, setSelectedSize] = useState<string>(initialSize);
   const [quantity, setQuantity] = useState(1);
   const [activeImage, setActiveImage] = useState(0);
 
+  if (!product) return notFound();
+
   const related = products
     .filter((p) => p.category === product.category && p.id !== product.id)
     .slice(0, 4);
 
-  const imageSrc = typeof product.image === "string" ? product.image : product.image?.src || "";
+  // Handle both local image imports and string URLs
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const getImageSrc = (img: any) => {
+    if (typeof img === "string") return img;
+    return img?.src || "";
+  };
+
+  const imageSrc = getImageSrc(product.image);
   const thumbnails = [imageSrc, imageSrc, imageSrc, imageSrc];
 
   return (
