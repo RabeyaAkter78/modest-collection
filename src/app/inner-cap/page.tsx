@@ -4,22 +4,22 @@ import Image from "next/image";
 import { products } from "@/data/products";
 import ProductCard from "@/components/ProductCard";
 import BackButton from "@/components/BackButton";
-
+import innerCap from "../../images/pexels-bymalbus-35324616.jpg"
 export default function InnerCapPage() {
   const items = products.filter((p) => p.category === "inner-cap");
 
   return (
     <div className="min-h-screen bg-stone-50">
       {/* Hero Banner */}
-      <div className="relative h-[300px] md:h-[400px]">
+      <div className="relative h-75 md:h-100">
         <Image
-          src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1920&q=80"
+          src={innerCap}
           alt="Inner Cap Collection"
           fill
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-stone-900/70 to-stone-900/30" />
+        <div className="absolute inset-0 bg-linear-to-r from-stone-900/70 to-stone-900/30" />
         {/* Back Button */}
         <div className="absolute left-4 top-4 z-10 sm:left-6 sm:top-6 lg:left-8 lg:top-8">
           <BackButton variant="dark" />

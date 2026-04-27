@@ -6,7 +6,7 @@ import { products } from "@/data/products";
 import ProductCard from "@/components/ProductCard";
 import BackButton from "@/components/BackButton";
 import { ChevronDown, SlidersHorizontal } from "lucide-react";
-
+import borkha from "../../images/pexels-thehijabcompany-30077119.jpg";
 const subcategories = [
   { value: "all", label: "All Borkhas" },
   { value: "plain", label: "Plain Borkha" },
@@ -43,15 +43,15 @@ export default function BorkhaPage() {
   return (
     <div className="min-h-screen bg-stone-50">
       {/* Hero Banner */}
-      <div className="relative h-[300px] md:h-[400px]">
+      <div className="relative h-75 md:h-100">
         <Image
-          src="https://images.unsplash.com/photo-1612454239454-1a99709a7482?w=1920&q=80"
+          src={borkha}
           alt="Borkha Collection"
           fill
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-stone-900/70 to-stone-900/30" />
+        <div className="absolute inset-0 bg-linear-to-r from-stone-900/70 to-stone-900/30" />
         {/* Back Button */}
         <div className="absolute left-4 top-4 z-10 sm:left-6 sm:top-6 lg:left-8 lg:top-8">
           <BackButton variant="dark" />

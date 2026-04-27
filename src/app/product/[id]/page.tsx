@@ -15,12 +15,14 @@ export default function ProductDetails({
 }: {
   params: { slug: string };
 }) {
+  const { add } = useCart();
+  const { toggle, has } = useWishlist();
+
   const product = products.find((p) => p.slug === params.slug);
   if (!product) return notFound();
 
-  const { add } = useCart();
-  const { toggle, has } = useWishlist();
-  const [selectedSize, setSelectedSize] = useState<string>(product.sizes?.[0] || "");
+  const initialSize = product?.sizes?.[0] || "";
+  const [selectedSize, setSelectedSize] = useState<string>(initialSize);
   const [quantity, setQuantity] = useState(1);
   const [activeImage, setActiveImage] = useState(0);
 

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import BackButton from "@/components/BackButton";
 import { Heart, Eye, Gem } from "lucide-react";
-
+import aboutImg from "../../images/pexels-pnw-prod-9218415.jpg";
 const values = [
   {
     icon: Heart,
@@ -60,9 +60,9 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="relative" data-aos="fade-left">
-              <div className="aspect-[4/5] overflow-hidden rounded-lg">
+              <div className="aspect-4/5 overflow-hidden rounded-lg">
                 <Image
-                  src="https://images.unsplash.com/photo-1612454239454-1a99709a7482?w=800&q=80"
+                  src={aboutImg}
                   alt="Modest Collection Story"
                   fill
                   className="object-cover"
