@@ -1,5 +1,12 @@
 import type { Product } from "@/types/product";
-
+import  img1 from "../images/download (10).jpg";
+import  img2 from "../images/download (11).jpg";
+import  img3 from "../images/download (12).jpg";
+import  img4 from "../images/download (13).jpg";
+import  img5 from "../images/download (14).jpg";
+import  img6 from "../images/download (15).jpg";
+import  img7 from "../images/download (16).jpg";
+import  img8 from "../images/download (17).jpg";
 export const products: Product[] = [
   {
     id: "b1",
@@ -8,7 +15,7 @@ export const products: Product[] = [
     category: "borkha",
     subcategory: "plain",
     price: 2800,
-    image: "https://images.unsplash.com/photo-1585241938810-9b77e682d9f1?q=80&w=1200&auto=format&fit=crop",
+    image: img1,
     description: "Minimal plain borkha with premium fabric.",
     sizes: ["S", "M", "L", "XL"],
   },
@@ -19,7 +26,7 @@ export const products: Product[] = [
     category: "borkha",
     subcategory: "regular",
     price: 3200,
-    image: "https://images.unsplash.com/photo-1515542703273-34b6f2a4a3a6?q=80&w=1200&auto=format&fit=crop",
+    image: img2,
     description: "Everyday comfort with elegant design.",
     sizes: ["S", "M", "L", "XL"],
   },
@@ -30,7 +37,7 @@ export const products: Product[] = [
     category: "borkha",
     subcategory: "party",
     price: 4800,
-    image: "https://images.unsplash.com/photo-1519744792095-2f2205e87b6f?q=80&w=1200&auto=format&fit=crop",
+    image: img3,
     description: "Sophisticated details for special occasions.",
     sizes: ["M", "L", "XL"],
     onSale: true,
@@ -42,7 +49,7 @@ export const products: Product[] = [
     category: "abaya",
     subcategory: "casual",
     price: 3500,
-    image: "https://images.unsplash.com/photo-1542060748-10c28b62716d?q=80&w=1200&auto=format&fit=crop",
+    image: img4,
     sizes: ["S", "M", "L"],
   },
   {
@@ -52,7 +59,7 @@ export const products: Product[] = [
     category: "abaya",
     subcategory: "party",
     price: 5200,
-    image: "https://images.unsplash.com/photo-1512203492609-8f7f06f4a130?q=80&w=1200&auto=format&fit=crop",
+    image: img5,
     onSale: true,
   },
   {
@@ -62,7 +69,7 @@ export const products: Product[] = [
     category: "abaya",
     subcategory: "premium",
     price: 6200,
-    image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1200&auto=format&fit=crop",
+    image: img6,
   },
   {
     id: "h1",
@@ -70,7 +77,7 @@ export const products: Product[] = [
     slug: "silk-hijab",
     category: "hijab",
     price: 1200,
-    image: "https://images.unsplash.com/photo-1519744792095-2f2205e87b6f?q=80&w=1200&auto=format&fit=crop",
+    image: img7,
   },
   {
     id: "h2",
@@ -78,7 +85,7 @@ export const products: Product[] = [
     slug: "cotton-hijab",
     category: "hijab",
     price: 800,
-    image: "https://images.unsplash.com/photo-1520974692379-6cbf3f0f1f6f?q=80&w=1200&auto=format&fit=crop",
+    image: img8,
   },
   {
     id: "i1",
@@ -86,7 +93,7 @@ export const products: Product[] = [
     slug: "inner-cap-basic",
     category: "inner-cap",
     price: 400,
-    image: "https://images.unsplash.com/photo-1520975599131-01b7eae4b2c9?q=80&w=1200&auto=format&fit=crop",
+    image: img7,
   },
   {
     id: "i2",
@@ -94,6 +101,6 @@ export const products: Product[] = [
     slug: "inner-cap-premium",
     category: "inner-cap",
     price: 700,
-    image: "https://images.unsplash.com/photo-1520974735194-6bc5a6ab0c00?q=80&w=1200&auto=format&fit=crop",
+    image: img8,
   },
 ];

@@ -1,11 +1,18 @@
+import Image from "next/image";
+import img1 from "../images/download (18).jpg";
+import img2 from "../images/download (19).jpg";
+import img3 from "../images/download (9).jpg";
+import img4 from "../images/images (1).jpg";
+import img5 from "../images/images (2).jpg";
+import img6 from "../images/images (3).jpg";
 export default function Gallery() {
   const images = [
-    "https://images.unsplash.com/photo-1585241938810-9b77e682d9f1?q=80&w=1200&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1200&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1512203492609-8f7f06f4a130?q=80&w=1200&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1520974692379-6cbf3f0f1f6f?q=80&w=1200&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1519744792095-2f2205e87b6f?q=80&w=1200&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1542060748-10c28b62716d?q=80&w=1200&auto=format&fit=crop",
+    img1,
+    img2,
+    img3,
+    img4,
+    img5,
+    img6,
   ];
   return (
     <section className="py-16">
@@ -13,11 +20,13 @@ export default function Gallery() {
         <h2 className="text-2xl font-semibold">Product Gallery</h2>
         <div className="mt-6 columns-2 gap-4 md:columns-3">
           {images.map((src) => (
-            <div key={src} className="mb-4 overflow-hidden rounded-lg">
-              <img
+            <div key={src.src} className="mb-4 overflow-hidden rounded-lg">
+              <Image
                 src={src}
+                height={1000}
+                width={1000}
                 alt="Product"
-                className="w-full transition-transform hover:scale-105"
+                className="h-150 w-full object-cover transition-transform hover:scale-105"
                 loading="lazy"
               />
             </div>

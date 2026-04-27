@@ -12,7 +12,7 @@ export default function ProductCard({ product }: { product: Product }) {
       <div className="relative aspect-square w-full overflow-hidden rounded-md bg-zinc-100">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={product.image}
+          src={typeof product.image === "string" ? product.image : product.image.src}
           alt={product.name}
           className="h-full w-full object-cover transition-transform group-hover:scale-105"
           loading="lazy"

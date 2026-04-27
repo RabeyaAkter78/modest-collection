@@ -3,7 +3,8 @@ import Testimonials from "@/components/Testimonials";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Gallery from "@/components/Gallery";
 import { products } from "@/data/products";
-
+import Image from "next/image";
+import banner from "../../images/pexels-thehijabcompany-30077119.jpg"
 export default function Home() {
   const latest = products.slice(0, 8);
   const offers = products.filter((p) => p.onSale).slice(0, 8);
@@ -36,9 +37,9 @@ export default function Home() {
                 </a>
               </div>
             </div>
-            <div className="aspect-[4/3] w-full overflow-hidden rounded-xl">
-              <img
-                src="https://images.unsplash.com/photo-1520974692379-6cbf3f0f1f6f?q=80&w=1600&auto=format&fit=crop"
+            <div className="aspect-4/3 w-full overflow-hidden rounded-xl">
+              <Image
+                src={banner}
                 alt="Modest fashion banner"
                 className="h-full w-full object-cover"
                 loading="lazy"

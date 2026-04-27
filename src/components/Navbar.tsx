@@ -62,7 +62,7 @@ export default function Navbar() {
             </span>
           </Link>
 
-          <Link href="/auth/login" className="hidden text-sm md:inline-block">
+          <Link href="/login" className="hidden text-sm md:inline-block">
             Sign In
           </Link>
 
@@ -139,7 +139,7 @@ export default function Navbar() {
               Cart
             </Link>
             <Link
-              href="/auth/login"
+              href="/login"
               className="rounded-md px-2 py-2 hover:bg-zinc-100"
             >
               Sign In

@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image";
+
 export type Category =
   | "borkha"
   | "abaya"
@@ -14,7 +16,7 @@ export interface Product {
   category: Category;
   subcategory?: BorkhaCategory | AbayaCategory;
   price: number;
-  image: string;
+  image: string | StaticImageData;
   description?: string;
   sizes?: string[];
   onSale?: boolean;
