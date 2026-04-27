@@ -1,109 +1,175 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
+import {  Mail, MapPin, Phone, Send, Camera } from "lucide-react";
 
 export default function Footer() {
+  const [email, setEmail] = useState("");
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle newsletter subscription
+    alert("Thank you for subscribing!");
+    setEmail("");
+  };
+
   return (
-    <footer className="border-t bg-white">
-      <div className="mx-auto max-w-7xl px-4 py-12">
-        <div className="grid gap-8 md:grid-cols-4">
-          <div>
-            <h3 className="text-lg font-semibold">Modest Collection</h3>
-            <p className="mt-2 text-sm text-zinc-600">
-              Elegant, minimal, and modest fashion for every occasion.
+    <footer className="bg-stone-900 text-stone-300">
+      {/* Main Footer */}
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+          {/* Brand Column */}
+          <div className="lg:col-span-1">
+            <Link href="/" className="inline-block">
+              <span className="text-xl font-light text-white">Modest Collection</span>
+            </Link>
+            <p className="mt-4 text-sm leading-relaxed text-stone-400">
+              Discover elegant, minimal, and modest fashion for the modern Muslim woman. 
+              Crafted with care, designed with faith.
             </p>
-            <div className="mt-4 flex gap-3">
+            <div className="mt-6 flex gap-4">
               <Link
-                aria-label="Facebook"
                 href="#"
-                className="inline-flex h-8 w-8 items-center justify-center rounded-full border"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-stone-800 text-stone-400 transition-colors hover:bg-stone-700 hover:text-white"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                >
-                  <path d="M22 12a10 10 0 1 0-11.6 9.9v-7h-2.4V12h2.4V9.8c0-2.4 1.4-3.7 3.6-3.7 1 0 2 .2 2 .2v2.3h-1.1c-1.1 0-1.4.7-1.4 1.4V12h2.4l-.4 2.9h-2v7A10 10 0 0 0 22 12z" />
-                </svg>
+                <Mail className="h-5 w-5" />
               </Link>
               <Link
-                aria-label="Instagram"
                 href="#"
-                className="inline-flex h-8 w-8 items-center justify-center rounded-full border"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-stone-800 text-stone-400 transition-colors hover:bg-stone-700 hover:text-white"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                >
-                  <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3a5 5 0 1 0 .001 10.001A5 5 0 0 0 12 7zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm4.5-.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2z" />
-                </svg>
+                <Camera className="h-5 w-5" />
               </Link>
             </div>
           </div>
 
+          {/* Shop Links */}
           <div>
-            <h4 className="text-sm font-semibold">Links</h4>
-            <ul className="mt-2 space-y-2 text-sm">
+            <h4 className="text-sm font-medium tracking-wider text-white uppercase">
+              Shop
+            </h4>
+            <ul className="mt-6 space-y-3 text-sm">
               <li>
-                <Link href="/refund-policy" className="hover:underline">
-                  Refund Policy
+                <Link href="/borkha" className="transition-colors hover:text-white">
+                  Borkha
                 </Link>
               </li>
               <li>
-                <Link href="/privacy-policy" className="hover:underline">
+                <Link href="/abaya" className="transition-colors hover:text-white">
+                  Abaya
+                </Link>
+              </li>
+              <li>
+                <Link href="/hijab" className="transition-colors hover:text-white">
+                  Hijab
+                </Link>
+              </li>
+              <li>
+                <Link href="/inner-cap" className="transition-colors hover:text-white">
+                  Inner Cap
+                </Link>
+              </li>
+              <li>
+                <Link href="/cart" className="transition-colors hover:text-white">
+                  Shopping Cart
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Company Links */}
+          <div>
+            <h4 className="text-sm font-medium tracking-wider text-white uppercase">
+              Company
+            </h4>
+            <ul className="mt-6 space-y-3 text-sm">
+              <li>
+                <Link href="/about" className="transition-colors hover:text-white">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="transition-colors hover:text-white">
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link href="/privacy-policy" className="transition-colors hover:text-white">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms-and-conditions" className="hover:underline">
+                <Link href="/terms-and-conditions" className="transition-colors hover:text-white">
                   Terms & Conditions
                 </Link>
               </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-sm font-semibold">Company</h4>
-            <ul className="mt-2 space-y-2 text-sm">
               <li>
-                <Link href="/about" className="hover:underline">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:underline">
-                  Contact
+                <Link href="/refund-policy" className="transition-colors hover:text-white">
+                  Refund Policy
                 </Link>
               </li>
             </ul>
           </div>
 
+          {/* Contact & Newsletter */}
           <div>
-            <h4 className="text-sm font-semibold">Newsletter</h4>
-            <p className="mt-2 text-sm text-zinc-600">
-              Subscribe for updates and offers.
-            </p>
-            <form className="mt-3 flex gap-2">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="w-full rounded-md border px-3 py-2 text-sm"
-                aria-label="Email address"
-              />
-              <button
-                type="submit"
-                className="rounded-md bg-zinc-900 px-4 py-2 text-sm text-white"
-              >
-                Subscribe
-              </button>
-            </form>
+            <h4 className="text-sm font-medium tracking-wider text-white uppercase">
+              Contact
+            </h4>
+            <ul className="mt-6 space-y-3 text-sm">
+              <li className="flex items-start gap-3">
+                <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-stone-500" />
+                <span>Dhaka, Bangladesh</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Phone className="h-4 w-4 flex-shrink-0 text-stone-500" />
+                <span>+880 1XXX-XXXXXX</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Mail className="h-4 w-4 flex-shrink-0 text-stone-500" />
+                <span>hello@modestcollection.com</span>
+              </li>
+            </ul>
+
+            {/* Newsletter */}
+            <div className="mt-8">
+              <h4 className="text-sm font-medium tracking-wider text-white uppercase">
+                Newsletter
+              </h4>
+              <p className="mt-2 text-xs text-stone-500">
+                Subscribe for exclusive offers and updates.
+              </p>
+              <form onSubmit={handleSubscribe} className="mt-4 flex gap-2">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Your email"
+                  required
+                  className="flex-1 rounded-sm bg-stone-800 px-3 py-2 text-sm text-white placeholder:text-stone-500 focus:outline-none focus:ring-1 focus:ring-stone-600"
+                />
+                <button
+                  type="submit"
+                  className="flex items-center justify-center rounded-sm bg-white px-3 py-2 text-stone-900 transition-colors hover:bg-stone-200"
+                >
+                  <Send className="h-4 w-4" />
+                </button>
+              </form>
+            </div>
           </div>
         </div>
-        <div className="mt-8 border-t pt-6 text-sm text-zinc-600">
-          © {new Date().getFullYear()} Modest Collection. All rights reserved.
+      </div>
+
+      {/* Bottom Bar */}
+      <div className="border-t border-stone-800">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-6 sm:flex-row sm:px-6 lg:px-8">
+          <p className="text-xs text-stone-500">
+            © {new Date().getFullYear()} Modest Collection. All rights reserved.
+          </p>
+          <p className="text-xs text-stone-500">
+            Crafted with love for the modest fashion community
+          </p>
         </div>
       </div>
     </footer>
