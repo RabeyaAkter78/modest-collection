@@ -3,12 +3,13 @@
 import { notFound } from "next/navigation";
 import { useState, use } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { products } from "@/data/products";
 import ProductCard from "@/components/ProductCard";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import { useCart } from "@/context/CartContext";
 import { useWishlist } from "@/context/WishlistContext";
-import { Heart, ShoppingBag, Truck, Shield, ArrowLeft, Star } from "lucide-react";
+import { Heart, ShoppingBag, Truck, Shield, Star } from "lucide-react";
 
 export default function ProductDetails({
   params,
@@ -44,21 +45,11 @@ export default function ProductDetails({
   const thumbnails = [imageSrc, imageSrc, imageSrc, imageSrc];
 
   return (
-    <div className="min-h-screen bg-stone-50">
-      {/* Breadcrumb */}
-      <div className="border-b border-stone-200 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
-          <Link
-            href={`/${product.category}`}
-            className="inline-flex items-center gap-2 text-sm text-stone-600 transition-colors hover:text-stone-900"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Back to {product.category.charAt(0).toUpperCase() + product.category.slice(1)}
-          </Link>
-        </div>
-      </div>
+    <div className="flex min-h-screen flex-col bg-stone-50">
+      <Navbar />
 
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <main className="flex-1">
+        <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Product Section */}
         <div className="grid gap-12 lg:grid-cols-2">
           {/* Image Gallery */}
@@ -241,7 +232,10 @@ export default function ProductDetails({
             </div>
           </div>
         )}
-      </div>
+        </div>
+      </main>
+
+      <Footer />
     </div>
   );
 }
