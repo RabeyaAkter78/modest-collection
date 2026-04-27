@@ -1,29 +1,28 @@
 "use client";
 import { useRouter } from "next/navigation";
+import { ArrowLeft } from "lucide-react";
 
-export default function BackButton({ className }: { className?: string }) {
+interface BackButtonProps {
+  className?: string;
+  variant?: "light" | "dark";
+}
+
+export default function BackButton({ className, variant = "light" }: BackButtonProps) {
   const router = useRouter();
+
+  const baseStyles = "inline-flex items-center gap-2 rounded-sm px-4 py-2 text-sm font-medium transition-all";
+  const variantStyles = variant === "dark"
+    ? "bg-stone-900/80 text-white hover:bg-stone-900 backdrop-blur-sm"
+    : "bg-white/80 text-stone-700 hover:bg-white hover:text-stone-900 border border-stone-200 backdrop-blur-sm";
+
   return (
     <button
       type="button"
       onClick={() => router.back()}
-      className={className ?? "inline-flex items-center gap-2 rounded-md border px-3 py-2 text-sm"}
+      className={className ?? `${baseStyles} ${variantStyles}`}
       aria-label="Go back"
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M19 12H5" />
-        <path d="M12 19l-7-7 7-7" />
-      </svg>
+      <ArrowLeft className="h-4 w-4" />
       Back
     </button>
   );

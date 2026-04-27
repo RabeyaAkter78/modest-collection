@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import Image from "next/image";
 import { products } from "@/data/products";
 import ProductCard from "@/components/ProductCard";
+import BackButton from "@/components/BackButton";
 import { ChevronDown, SlidersHorizontal } from "lucide-react";
 
 const subcategories = [
@@ -51,6 +52,10 @@ export default function AbayaPage() {
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-r from-stone-900/70 to-stone-900/30" />
+        {/* Back Button */}
+        <div className="absolute left-4 top-4 z-10 sm:left-6 sm:top-6 lg:left-8 lg:top-8">
+          <BackButton variant="dark" />
+        </div>
         <div className="absolute inset-0 flex items-center">
           <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-xl">

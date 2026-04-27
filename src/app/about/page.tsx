@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import BackButton from "@/components/BackButton";
 import { Heart, Eye, Gem } from "lucide-react";
 
 const values = [
@@ -31,6 +32,11 @@ const milestones = [
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-stone-50">
+      {/* Back Button */}
+      <div className="absolute left-4 top-4 z-10 sm:left-6 sm:top-6 lg:left-8 lg:top-8">
+        <BackButton />
+      </div>
+
       {/* Hero Section */}
       <section className="relative py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

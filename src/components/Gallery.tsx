@@ -3,35 +3,48 @@
 import { useState } from "react";
 import Image from "next/image";
 import { X, ZoomIn } from "lucide-react";
+import  img1 from "../images/download (10).jpg";
+import  img2 from "../images/download (11).jpg";
+import  img3 from "../images/download (12).jpg";
+import  img4 from "../images/download (13).jpg";
+import  img5 from "../images/download (14).jpg";
+import  img6 from "../images/download (15).jpg";
+import  img7 from "../images/download (16).jpg";
+import  img8 from "../images/download (17).jpg";
 
 const galleryImages = [
   {
-    src: "https://images.unsplash.com/photo-1612454239454-1a99709a7482?w=800&q=80",
+    src: img1,
     alt: "Elegant Abaya Collection",
     span: "row-span-2",
   },
   {
-    src: "https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?w=800&q=80",
+    src: img2,
     alt: "Premium Hijab Styles",
     span: "",
   },
   {
-    src: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=800&q=80",
+    src: img3,
     alt: "Modest Fashion",
     span: "",
   },
   {
-    src: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&q=80",
+    src: img4,
     alt: "Borkha Designs",
     span: "row-span-2",
   },
   {
-    src: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&q=80",
+    src: img5,
     alt: "Fashion Details",
     span: "",
   },
   {
-    src: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=800&q=80",
+    src: img6,
+    alt: "Modest Style",
+    span: "",
+  },
+  {
+    src: img7,
     alt: "Modest Style",
     span: "",
   },
@@ -64,7 +77,7 @@ export default function Gallery() {
               className={`group relative cursor-pointer overflow-hidden rounded-lg ${image.span}`}
               data-aos="fade-up"
               data-aos-delay={index * 50}
-              onClick={() => setSelectedImage(image.src)}
+              onClick={() => setSelectedImage(typeof image.src === "string" ? image.src : image.src.src)}
             >
               <div className="relative aspect-square h-full w-full">
                 <Image

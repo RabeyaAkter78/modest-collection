@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import BackButton from "@/components/BackButton";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 
 const contactInfo = [
@@ -43,6 +44,11 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-stone-50">
+      {/* Back Button */}
+      <div className="absolute left-4 top-20 z-10 sm:left-6 lg:left-8">
+        <BackButton />
+      </div>
+
       {/* Header */}
       <section className="bg-white py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">

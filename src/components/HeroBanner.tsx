@@ -4,11 +4,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules";
 import Link from "next/link";
 import Image from "next/image";
-
+import banner1 from "../images/pexels-thehijabcompany-30077119.jpg";
+import banner2 from "../images/pexels-thehijabcompany-30077117.jpg";
+import banner3 from "../images/pexels-venvick-33908524.jpg";
 const slides = [
   {
     id: 1,
-    image: "https://images.unsplash.com/photo-1612454239454-1a99709a7482?w=1920&q=80",
+    image: banner1,
     title: "Elegance in Modesty",
     subtitle: "Discover timeless pieces that honor your faith while expressing your unique style",
     cta: "Explore Collection",
@@ -16,7 +18,7 @@ const slides = [
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?w=1920&q=80",
+    image: banner2,
     title: "Graceful Abayas",
     subtitle: "Sophisticated designs crafted for the modern Muslim woman",
     cta: "Shop Abayas",
@@ -24,7 +26,7 @@ const slides = [
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=1920&q=80",
+    image: banner3,
     title: "Pure Confidence",
     subtitle: "Premium fabrics that feel as beautiful as they look",
     cta: "Shop Now",
