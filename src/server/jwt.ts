@@ -7,8 +7,10 @@ export interface JwtPayload {
   email: string;
 }
 
-export function signToken(payload: JwtPayload, expiresIn = "7d") {
-  return jwt.sign(payload, SECRET, { algorithm: "HS256", expiresIn });
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function signToken(payload: JwtPayload, expiresIn: any = "7d") {
+  const options: jwt.SignOptions = { algorithm: "HS256", expiresIn };
+  return jwt.sign(payload, SECRET, options);
 }
 
 export function verifyToken(token: string) {
