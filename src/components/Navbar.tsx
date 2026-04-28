@@ -79,7 +79,7 @@ export default function Navbar() {
           {user ? (
             <Link
               href="/dashboard"
-              className="hidden transition-opacity hover:opacity-80 md:block"
+              className="transition-opacity hover:opacity-80"
             >
               {user.avatar ? (
                 <img
@@ -96,7 +96,7 @@ export default function Navbar() {
           ) : (
             <Link
               href="/login"
-              className="hidden text-stone-600 transition-colors hover:text-stone-900 md:block"
+              className="text-stone-600 transition-colors hover:text-stone-900"
             >
               <User className="h-5 w-5" />
             </Link>
