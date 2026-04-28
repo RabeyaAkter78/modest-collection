@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useCart } from "@/context/CartContext";
+import { useAuth } from "@/context/AuthContext";
 import { ShoppingBag, Menu, X, User, Search } from "lucide-react";
 
 const navLinks = [
@@ -18,7 +19,15 @@ const navLinks = [
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const { items } = useCart();
+  const { user } = useAuth();
   const cartCount = items.reduce((sum, i) => sum + i.quantity, 0);
+
+  const initials = user?.name
+    ?.split(" ")
+    .map((n) => n[0])
+    .join("")
+    .toUpperCase()
+    .slice(0, 2);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-stone-200 bg-white/90 backdrop-blur-md">
@@ -67,12 +76,31 @@ export default function Navbar() {
           </Link>
 
           {/* Account */}
-          <Link
-            href="/login"
-            className="hidden text-stone-600 transition-colors hover:text-stone-900 md:block"
-          >
-            <User className="h-5 w-5" />
-          </Link>
+          {user ? (
+            <Link
+              href="/dashboard"
+              className="hidden transition-opacity hover:opacity-80 md:block"
+            >
+              {user.avatar ? (
+                <img
+                  src={user.avatar}
+                  alt={user.name}
+                  className="h-7 w-7 rounded-full object-cover ring-2 ring-stone-200"
+                />
+              ) : (
+                <div className="flex h-7 w-7 items-center justify-center rounded-full bg-stone-900 text-[10px] font-medium text-white ring-2 ring-stone-200">
+                  {initials}
+                </div>
+              )}
+            </Link>
+          ) : (
+            <Link
+              href="/login"
+              className="hidden text-stone-600 transition-colors hover:text-stone-900 md:block"
+            >
+              <User className="h-5 w-5" />
+            </Link>
+          )}
 
           {/* Mobile Menu Toggle */}
           <button
@@ -111,14 +139,39 @@ export default function Navbar() {
               <ShoppingBag className="h-4 w-4" />
               Cart ({cartCount})
             </Link>
-            <Link
-              href="/login"
-              className="flex items-center gap-2 rounded-md px-3 py-3 text-sm font-medium text-stone-600 transition-colors hover:bg-stone-100 hover:text-stone-900"
-              onClick={() => setOpen(false)}
-            >
-              <User className="h-4 w-4" />
-              Sign In
-            </Link>
+            {user ? (
+              <>
+                <Link
+                  href="/dashboard/profile"
+                  className="flex items-center gap-2 rounded-md px-3 py-3 text-sm font-medium text-stone-600 transition-colors hover:bg-stone-100 hover:text-stone-900"
+                  onClick={() => setOpen(false)}
+                >
+                  {user.avatar ? (
+                    <img src={user.avatar} alt={user.name} className="h-4 w-4 rounded-full object-cover" />
+                  ) : (
+                    <User className="h-4 w-4" />
+                  )}
+                  My Profile
+                </Link>
+                <Link
+                  href="/dashboard"
+                  className="flex items-center gap-2 rounded-md px-3 py-3 text-sm font-medium text-stone-600 transition-colors hover:bg-stone-100 hover:text-stone-900"
+                  onClick={() => setOpen(false)}
+                >
+                  <ShoppingBag className="h-4 w-4" />
+                  My Orders
+                </Link>
+              </>
+            ) : (
+              <Link
+                href="/login"
+                className="flex items-center gap-2 rounded-md px-3 py-3 text-sm font-medium text-stone-600 transition-colors hover:bg-stone-100 hover:text-stone-900"
+                onClick={() => setOpen(false)}
+              >
+                <User className="h-4 w-4" />
+                Sign In
+              </Link>
+            )}
           </div>
         </nav>
       </div>
